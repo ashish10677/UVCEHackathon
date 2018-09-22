@@ -29,8 +29,27 @@
               <i class="like icon"></i> <%=post.likes%> Likes
             </a>
           </div>
+          <div class="ui feed">
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                <a><%=post.username%></a>
+              <div class="date">
+                <%=post.timestamp%>
+              </div>
+              </div>
+              <div class="extra text">
+                <%=post.body%>
+              </div>
+              <div class="meta">
+                <a class="like">
+                  <i class="like icon"></i> <%=post.likes%> Likes
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ui feed"></div>
+        </div>
         
       </div>
     <% }%>

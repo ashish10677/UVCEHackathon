@@ -28,15 +28,14 @@ module.exports=function(app){
     app.post('/verify_phone',jsonParser,function(req,res){
         //get data from mongodb and pass it to view
         console.log(req.body);
-        var phone = "+"+req.body.phone
-        console.log(phone);
+        console.log("+91"+req.body.phone);
         const client = require('twilio')(
-          "AC53fbc5bf2752730f60e585c315ccdaa4","780cdcb2d905b40c91b9719b12f80b47"
+          "AC061662d2d4a109724d16772ef79d3015","d784b07218dd2f02d0853dc40b9595d2"
         );
         client.validationRequests
         .create({
            friendlyName: req.body.name,
-           phoneNumber: phone
+           phoneNumber: "+91"+req.body.phone
          })
         .then(validation_request => console.log(validation_request.validationCode))
         .done();
@@ -46,10 +45,11 @@ module.exports=function(app){
     app.post('/send_sms',jsonParser,function(req,res){
         //get data from mongodb and pass it to view
         const client = require('twilio')(
-          "AC53fbc5bf2752730f60e585c315ccdaa4","780cdcb2d905b40c91b9719b12f80b47"
+          "AC061662d2d4a109724d16772ef79d3015","d784b07218dd2f02d0853dc40b9595d2"
         );
         client.messages.create({
-          from: "+15707225182",
+          // from: "+15707225182",
+          from: "+13203144713",
           to: '+91'+req.body.phone,
           body: "http://www.google.com/maps/place/12.9748561,77.58618249999999"
         }).then(message => console.log(message.sid));
