@@ -8,7 +8,7 @@
 <body>
   
   <div class="ui container">
-    <div class="ui feed">
+    <div class="ui big feed">
     <% for(let post of feed.posts){%>
       <div class="event">
 <!--         <div class="label">
@@ -29,7 +29,9 @@
               <i class="like icon"></i> <%=post.likes%> Likes
             </a>
           </div>
-          <div class="ui feed">
+          <div class="ui container">
+            
+          <div class="ui small feed">
           <div class="event">
             <div class="content">
               <div class="summary">
@@ -41,14 +43,9 @@
               <div class="extra text">
                 <%=post.body%>
               </div>
-              <div class="meta">
-                <a class="like">
-                  <i class="like icon"></i> <%=post.likes%> Likes
-                </a>
-              </div>
             </div>
           </div>
-        </div>
+          </div>
         </div>
         
       </div>

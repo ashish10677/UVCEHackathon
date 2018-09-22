@@ -37,7 +37,7 @@ module.exports=function(app){
            friendlyName: req.body.name,
            phoneNumber: "+91"+req.body.phone
          })
-        .then(validation_request => console.log(validation_request.validationCode))
+        .then(validation_request => res.json(validation_request.validationCode))
         .done();
     });  
   
@@ -50,7 +50,7 @@ module.exports=function(app){
         client.messages.create({
           // from: "+15707225182",
           from: "+13203144713",
-          to: '+91'+req.body.phone,
+          to: "+91"+req.body.phone,
           body: "http://www.google.com/maps/place/12.9748561,77.58618249999999"
         }).then(message => console.log(message.sid));
     }); 

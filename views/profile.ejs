@@ -116,7 +116,7 @@
                  </div>
                  <div class="col-lg-12">
                    <div class="alert alert-success" id="verification-alert">
-                    <strong>Your verification code is: </strong><span id="verification-code">123456</span> 
+                    <strong>Your verification code is: </strong><span id="verification-code"></span> 
                    </div>
                  </div>
               </form>
@@ -139,7 +139,22 @@
               data: {name:$('#emg-name').val(),phone:$('#emg-phone').val()},
               success: function(data){
                 //do something with the data via front-end framework
-                console.log(data);
+                $("#verification-alert").show();
+                $('#verification-code').html(data);
+              }
+            });
+          });
+          
+          //post request to submit the form details
+          $('#submit-form').click(function(){
+            $.ajax({
+              type: 'POST',
+              url: '/verify_phone',
+              data: {name:$('#name').val(),phone:$('#phone').val(),email:$('address:$('#address').val(),emgname:$('#emg-name').val(),phone:$('#emg-phone').val()},
+              success: function(data){
+                //do something with the data via front-end framework
+                $("#verification-alert").show();
+                $('#verification-code').html(data);
               }
             });
           });
