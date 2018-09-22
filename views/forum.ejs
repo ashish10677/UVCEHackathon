@@ -14,11 +14,13 @@
       <div class="field">
         <textarea></textarea>
       </div>
-      <div class="ui blue labeled submit icon button">
+      <div class="ui blue labeled submit icon button right floated" onclick="comment()">
         <i class="icon edit"></i> Add Post
       </div>
     </form>
-    
+    <h2>
+      Posts
+    </h2>
     <div class="ui items">
     <% for(let post of feed.posts){%>        
       <div class="item">
@@ -73,4 +75,9 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+  <script>
+    function comment(){
+      console.log("submit");
+    }
+  </script>
 </body>
