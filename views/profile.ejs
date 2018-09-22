@@ -112,15 +112,42 @@
                         <input class="form-control" placeholder="Phone" type="number" id="phone" name="phone"
                                maxlength="10"/>
                     </div>
-                    <button class="btn btn-danger">Verify Phone</button>
-                    <div class="alert alert-success">
-                      <strong>Your verification code is: </strong><span id="verification-code">123456</span> 
-                    </div>
+                    <button type="button" id="verify-phone-button" class="btn btn-danger">Verify Phone</button>
+                 </div>
+                 <div class="col-lg-12">
+                   <div class="alert alert-success" id="verification-alert">
+                    <strong>Your verification code is: </strong><span id="verification-code">123456</span> 
+                   </div>
                  </div>
               </form>
+              <center><button type="button" id="submit-form" class="btn btn-success">Submit Details</button></center>
             </div>
         </div>
     </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+        var position,url;
+        $(document).ready(function(){
+          $("#verification-alert").hide();
+          
+          //post request to verify phone
+          $("verify-phone-button
+            // $("#abc").click(function(){
+            //     navigator.geolocation.getCurrentPosition(function(pos){
+            //       position= pos;
+            //       url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
+            //       console.log(url);
+            //     });  
+            // });
+        });
+        
+        // if (navigator.geolocation) { //check if geolocation is available
+        //     navigator.geolocation.getCurrentPosition(function(position){
+        //       console.log(position);
+        //     });   
+        // }
+     
+      </script>
 </body>
 
 </html>
