@@ -126,8 +126,6 @@
     </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
-        var userdata = JSON.parse(<%= user_data%>);
-        console.log(userdata);
         var position,url;
         $(document).ready(function(){
           
@@ -137,7 +135,14 @@
               url: '/profile/getdata',
               success: function(data){
                 //do something with the data via front-end framework
-                console.log(data);
+                // console.log(data);
+                $('#name').val(data.username);
+                $('#phone').val(data.phone);
+                $('#email').val(data.email);
+                $('#address').val(data.address);
+                $('#emg-name').val(data.emgname);
+                $('#emg-phone').val(data.emgphone);
+                $('#emg-email').val(data.emgemail);
               }
             });
           

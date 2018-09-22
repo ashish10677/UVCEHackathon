@@ -9,48 +9,34 @@
   
   <div class="ui container">
     <div class="ui items">
-    <% for(let post of feed.posts){%>
-<!--         <div class="label">
-          <img src="/images/avatar/small/joe.jpg">
-        </div> -->
-        
-        
-        
-        <div class="item">
-          <a class="ui tiny image">
-            <img src="https://semantic-ui.com/images/avatar/large/stevie.jpg">
-          </a>
-          <div class="content">
-            <a class="header"><%=post.username%></a>
-            <div class="date">
-              <small><%=post.timestamp%></small>
-            </div>
-            <div class="description">
-              <p><%=post.body%></p>
-            </div>
-            <div class="extra">
-              <i class="green like icon"></i>
-              <%=post.likes%> Likes
-            </div>
-          </div>
-         
-        </div>
-        
-        
-        
-<!--         <div class="content">
-          <div class="summary">
-            <a><%=post.username%></a>
+    <% for(let post of feed.posts){%>        
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="https://semantic-ui.com/images/avatar/large/stevie.jpg">
+        </a>
+        <div class="content">
+          <a class="header"><%=post.username%></a>
           <div class="date">
-            <%=post.timestamp%>
+            <small><%=post.timestamp%></small>
           </div>
+          <div class="description">
+            <p><%=post.body%></p>
           </div>
-          <div class="extra text">
-            <%=post.body%>
+          <div class="extra">
+            <i class="green like icon"></i>
+            <%=post.likes%> Likes
+            <% for(let comments of feed.comments){%>
+              
+
+            <% }%>
           </div>
-          <div class="meta">
-            <a class="like">
-              <i class="like icon"></i> <%=post.likes%> Likes
+        </div>
+
+      </div>
+        
+        
+        
+
                <div class="ui small feed">
                 <div class="event">
                   <div class="content">
@@ -66,9 +52,7 @@
                   </div>
                 </div>
               </div>
-            </a>
-          </div>
-        </div> -->
+      
         
     <% }%>
     </div>

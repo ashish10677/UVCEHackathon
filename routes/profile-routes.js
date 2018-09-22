@@ -25,8 +25,7 @@ const authCheck = (req, res, next) => {
 
 //get request for rendering user profile page
 router.get('/',authCheck, (req, res) => {
-  console.log(req.user);
-    res.render('profile',{user_data:JSON.stringify(req.user)});
+    res.render('profile');
 });
 
 //post request to get user data
