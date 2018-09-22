@@ -34,6 +34,9 @@
             margin: 0;
             padding: 0;
         }
+      #cab-link{
+        color: white;
+      }
     </style>
 </head>
 
@@ -49,18 +52,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Women Safety</a>
+                <a class="navbar-brand" href="https://women.glitch.me">Women Safety</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a id='home-link'>Home</a></li>
-                    <li><a id='about-link'>About</a></li>
                     <li><a id='forum-link'>Forum</a></li>
                     <li><a id='profile-link'>Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><div id="google_translate_element"></div></li>
                     <li><a id="accname"></a></li>
                     <li><a href="#">Help</a></li>
                     <li><a href="/auth/logout">Logout</a></li>
@@ -75,7 +78,15 @@
               <img height=200 width=200 src="https://cdn.glitch.com/9d8fbfbd-b303-462a-b9f1-4dae8df40e09%2Femgaccount.png?1537611376668">
               <h2>Name: <span id="homeemgname"></span></h2>
               <h2>Phone: <span id="homeemgphone"></span></h2>
-                <button type="button" id="contact-button" class="btn btn-danger">NOTIFY</button></center>
+              <button type="button" id="contact-button" class="btn btn-danger">NOTIFY</button>
+              <br>
+              <br>
+              <br>
+                <button type="button" id="cab-button" class="btn btn-danger"><a id="cab-link" href="https://www.olacabs.com/" target="_blank" >Book a Cab</a></button></center>
+            </div>
+            <div id="forum-page">
+              <iframe height=600 width=1200 src="/forum">
+              </iframe>
             </div>
             <div id="profile-page">
                <form id="registration-form" class="col-lg-12">
@@ -86,7 +97,7 @@
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input class="form-control" placeholder="Full Name" type="text" id="name" name="name"
-                               maxlength="10"/>
+                               maxlength="30"/>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
@@ -110,7 +121,7 @@
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input class="form-control" placeholder="Full Name" type="text" id="emg-name" name="emg-name"
-                               maxlength="10"/>
+                               maxlength="30"/>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
@@ -134,6 +145,12 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,gu,hi,kn,ml,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
         var useremail = '';
@@ -141,6 +158,7 @@
         var emgcontact;
         var position,url;
         $(document).ready(function(){
+          $("#forum-page").hide();
           $("#profile-page").hide();
           $("#verification-alert").hide();
           $.ajax({
@@ -167,11 +185,19 @@
           
           $("#home-link").click(function(){
             $("#profile-page").hide();
+            $("#forum-page").hide();
             $("#home-page").show();
+          });
+          
+          $("#forum-link").click(function(){
+            $("#profile-page").hide();
+            $("#home-page").hide();
+            $("#forum-page").show();
           });
           
           $("#profile-link").click(function(){
             $("#home-page").hide();
+            $("#forum-page").hide();
             $("#profile-page").show();
           });
           

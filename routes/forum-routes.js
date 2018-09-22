@@ -53,9 +53,10 @@ var Samplefeed={
   
 }
 router.get('/', (req, res) => {
+  console.log(req.user);
   Feed.find({},{'_id':0,'__v':0}, function (err, feed) {
 			if (err) return res.status(500).send({ error: err });
-      res.render('forum',{feed:Samplefeed})
+      res.render('forum',{feed:Samplefeed,username:req.user.username})
 			// res.json(feed);
   })
 });
