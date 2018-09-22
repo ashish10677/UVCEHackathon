@@ -126,6 +126,8 @@
     </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
+        var userdata = JSON.parse(<%= user_data%>);
+        console.log(userdata);
         var position,url;
         $(document).ready(function(){
           

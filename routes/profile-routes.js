@@ -1,23 +1,12 @@
 const router = require('express').Router();
 const User = require('../models/user-model');
 
-var user_name;
-var user_data={
-    user_exists:0,
-    user_email:'',
-    user_name:'',
-    user_id:''
-};
-
 
 //function for user auth check
 const authCheck = (req, res, next) => {
     if(!req.user){
         res.redirect('/');
     } else {
-        user_data.user_name=req.user.username;
-        user_data.user_email=req.user.email;
-        user_data.user_id=req.user.id;
         next();
     }
 };
@@ -36,13 +25,14 @@ const authCheck = (req, res, next) => {
 
 //get request for rendering user profile page
 router.get('/',authCheck, (req, res) => {
-    res.render('profile',{user_data});
+  console.log(req.user);
+    res.render('profile',{user_data:JSON.stringify(req.user)});
 });
 
 //post request to get user data
 router.post('/getdata',function(req,res){
     //get data from mongodb and pass it to view
-    res.json(user_data);
+    res.json(req.user);
 
 }); 
 
