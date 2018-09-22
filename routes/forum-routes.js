@@ -56,7 +56,7 @@ router.get('/', (req, res) => {
   console.log(req.user);
   Feed.find({},{'_id':0,'__v':0}, function (err, feed) {
 			if (err) return res.status(500).send({ error: err });
-      res.render('forum',{feed:Samplefeed,username:req.user.username})
+      res.render('forum',{feed:{posts:feed},username:req.user.username})
 			// res.json(feed);
   })
 });
@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
 router.post('/submit_post', (req, res) => {
   console.log(req.body);
   
-  Feed.insert(req.body, function (err, comment) {
+  Feed.insertMany([{...req.body}], function (err, comment) {
     if (err) 
       return res.status(500).send({ error: err });
     console.log(comment);
