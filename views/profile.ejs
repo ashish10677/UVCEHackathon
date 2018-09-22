@@ -149,12 +149,19 @@
           $('#submit-form').click(function(){
             $.ajax({
               type: 'POST',
-              url: '/verify_phone',
-              data: {name:$('#name').val(),phone:$('#phone').val(),email:$('address:$('#address').val(),emgname:$('#emg-name').val(),phone:$('#emg-phone').val()},
+              url: '/submit_profile',
+              data: {
+                username:$('#name').val(),
+                phone:$('#phone').val(),
+                email:$('#email').val(),
+                address:$('#address').val(),
+                emgname:$('#emg-name').val(),
+                emgphone:$('#emg-phone').val(),
+                emgemail:$('#emg-email').val()
+              },
               success: function(data){
                 //do something with the data via front-end framework
-                $("#verification-alert").show();
-                $('#verification-code').html(data);
+                console.log("successfully changed");
               }
             });
           });
