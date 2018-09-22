@@ -66,7 +66,7 @@ module.exports=function(app){
     app.post('/submit_feed', function(req, res){
         req.body.time = new Date(Date.now()).toLocaleString();
         new Feed(req.body).save().then((newFeed) => {
-            done(null, newFeed);
+            // done(null, newFeed);
         });
     });
 
