@@ -28,16 +28,16 @@ module.exports=function(app){
     app.post('/verify_phone',jsonParser,function(req,res){
         //get data from mongodb and pass it to view
         console.log(req.body);
-        // const client = require('twilio')(
-        //   "AC53fbc5bf2752730f60e585c315ccdaa4","780cdcb2d905b40c91b9719b12f80b47"
-        // );
-        // client.validationRequests
-        // .create({
-        //    friendlyName: 'My Home Phone Number',
-        //    phoneNumber: '+91'+req.body.phone
-        //  })
-        // .then(validation_request => console.log(validation_request.validationCode))
-        // .done();
+        const client = require('twilio')(
+          "AC53fbc5bf2752730f60e585c315ccdaa4","780cdcb2d905b40c91b9719b12f80b47"
+        );
+        client.validationRequests
+        .create({
+           friendlyName: req.body.name,
+           phoneNumber: '+91'+req.body.phone
+         })
+        .then(validation_request => console.log(validation_request.validationCode))
+        .done();
     });  
   
     //post request to send sms
