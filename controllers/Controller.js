@@ -45,6 +45,7 @@ module.exports=function(app){
     app.post('/send_sms',jsonParser,function(req,res){
         //get data from mongodb and pass it to view
         console.log(req.body.phone);
+        console.log(req.body.location);
         const client = require('twilio')(
           "ACb56cb4527cf2f246c34eaba7c0b0fd38","c5d4f1ad620bc134d96ab8fb9acd4993"
         );

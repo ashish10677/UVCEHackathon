@@ -157,14 +157,10 @@
         var username = '';
         var emgcontact;
         var position,url;
-    
-        function getloc(){
-         navigator.geolocation.getCurrentPosition(function(pos){
+        navigator.geolocation.getCurrentPosition(function(pos){
           position= pos;
-          url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
-          return url;
+          url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`;
         });  
-        }
         $(document).ready(function(){
           $("#forum-page").hide();
           $("#profile-page").hide();
@@ -211,10 +207,11 @@
           
           //post request to send sms to emg contact
           $('#contact-button').click(function(){
+            console.log(url);
             $.ajax({
               type: 'POST',
               url: '/send_sms',
-              data: {phone:emgcontact,location:getloc()},
+              data: {phone:emgcontact,location:url},
               success: function(data){
                 //do something with the data via front-end framework
                 console.log(data);

@@ -63,10 +63,12 @@ router.get('/', (req, res) => {
 
 router.post('/submit_post', (req, res) => {
   console.log(req.body);
-  Feed.new({},{'_id':0,'__v':0}, function (err, feed) {
-  if (err) return res.status(500).send({ error: err });
-      res.render('forum',{feed:Samplefeed,username:req.user.username})
-  // res.json(feed);
+  
+  Feed.insert(req.body, function (err, comment) {
+    if (err) 
+      return res.status(500).send({ error: err });
+    console.log(comment);
+
   })
 });
 
