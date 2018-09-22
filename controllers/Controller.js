@@ -63,7 +63,7 @@ module.exports=function(app){
     });
 
     //post request to submit feed
-    router.post('/submit_feed', function(req, res){
+    app.post('/submit_feed', function(req, res){
         req.body.time = new Date(Date.now()).toLocaleString();
         new Feed(req.body).save().then((newFeed) => {
             done(null, newFeed);

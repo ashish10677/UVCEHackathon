@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const Cv = require('../models/cv-model');
-const UserList = require('../models/userlist-model');
+const Cv = require('../models/user-model');
 
 var user_name;
 var user_data={
