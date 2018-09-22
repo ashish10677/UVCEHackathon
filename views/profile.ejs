@@ -25,6 +25,7 @@
                 navigator.geolocation.getCurrentPosition(function(pos){
                   position= pos;
                   url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
+                  console.log(url);
                 });  
             });
         });
