@@ -11,22 +11,22 @@
     <div class="ui feed">
     <% for(let post of feed.posts){%>
       <div class="event">
-        <div class="label">
+<!--         <div class="label">
           <img src="/images/avatar/small/joe.jpg">
-        </div>
+        </div> -->
         <div class="content">
           <div class="summary">
-            <a>Joe Henderson</a> posted on his page
+            <a><%=post.username%></a>
           <div class="date">
-            3 days ago
+            <%=post.timestamp%>
           </div>
           </div>
           <div class="extra text">
-          Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
+            <%=post.body%>
           </div>
           <div class="meta">
             <a class="like">
-              <i class="like icon"></i> 5 Likes
+              <i class="like icon"></i> <%=post.likes%> Likes
             </a>
           </div>
         </div>

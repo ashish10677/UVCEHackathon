@@ -4,21 +4,27 @@ const Feed = require('../models/feed-model');
 var Samplefeed={
   posts:[
     {
+      timestamp:"3 days ago",
       username:"testuser",
       title:"title",
       body:"testbody",
+      likes:2,
       comments:[]
     },
     {
+      timestamp:"2 days ago",
       username:"testuser2",
       title:"title2",
       body:"testbody2",
+      likes:3,
       comments:[]
     },
     {
+      timestamp:"1 day ago",
       username:"testuser3",
       title:"title3",
       body:"testbody3",
+      likes:7,
       comments:[]
     }
   ]
