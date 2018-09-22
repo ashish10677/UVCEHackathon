@@ -105,8 +105,8 @@ module.exports=function(app){
             if (err) return res.status(500).send({ error: err });
             var feeds=JSON.stringify(feed);
             feeds=JSON.parse(feeds);
-			res.json(feeds);
-		});
+			      res.json(feeds);
+		    });
     });
     
   
