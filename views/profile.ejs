@@ -1,8 +1,6 @@
 <html>
     <head>
         <title>Todo List</title>
-        <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
-        <script src="/assets/todo-list.js"></script>
     </head>
     <body>
         <h1>My Todo List</h1>
@@ -16,19 +14,18 @@
       <button type="button" id="abc">
         get loc
       </button>
+      <div id="output">
+        
+      </div>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script type="text/javascript">
+        var position,url;
         $(document).ready(function(){
             $("#abc").click(function(){
-                var position;
                 navigator.geolocation.getCurrentPosition(function(pos){
                   position= pos;
-                  console.log(position);
-                  var img = new Image();
-    // img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=13&size=800x400&sensor=false";
-    // $('#output').html(img);
+                  url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
                 });  
-                
             });
         });
         
