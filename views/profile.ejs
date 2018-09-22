@@ -56,10 +56,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a id='home-link'>Home</a></li>
+                    <li><a id='about-link'>About</a></li>
                     <li><a id='forum-link'>Forum</a></li>
                     <li><a id='profile-link'>Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a id="accname"></a></li>
                     <li><a href="#">Help</a></li>
                     <li><a href="/auth/logout">Logout</a></li>
                 </ul>
@@ -71,7 +73,8 @@
             <div id="home-page">
               <h2>Emergency Contact</h2>
               <p>Name: <span id="homeemgname"></span></p>
-              <p>Name: <span id="homeemgphone"></span></p>
+              <p>Phone: <span id="homeemgphone"></span></p>
+              <button type="button" id="contact-button" class="btn btn-danger">NOTIFY</button>
             </div>
             <div id="profile-page">
                <form id="registration-form" class="col-lg-12">
@@ -132,6 +135,8 @@
     </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript">
+        var useremail = '';
+        var username = '';
         var position,url;
         $(document).ready(function(){
           $("#profile-page").hide();
@@ -142,6 +147,8 @@
               success: function(data){
                 //do something with the data via front-end framework
                 // console.log(data);
+                username = data.username;
+                useremail = data.email;
                 $('#name').val(data.username);
                 $('#phone').val(data.phone);
                 $('#email').val(data.email);
@@ -149,16 +156,24 @@
                 $('#emg-name').val(data.emgname);
                 $('#emg-phone').val(data.emgphone);
                 $('#emg-email').val(data.emgemail);
+                $('#homeemgname').html(data.emgname);
+                $('#homeemgphone').html(data.emgphone);
+                $('#accname').html(data.username);
               }
             });
           
           $("#home-link").click(function(){
+            $("#profile-page").hide();
             $("#home-page").show();
           });
           
           $("#profile-link").click(function(){
+            $("#home-page").hide();
             $("#profile-page").show();
           });
+          
+          //post request to send sms to emg contact
+          $('#contact-button')
           
           //post request to verify phone
           $('#verify-phone-button').click(function(){
