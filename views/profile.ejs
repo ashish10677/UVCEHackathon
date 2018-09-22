@@ -157,6 +157,14 @@
         var username = '';
         var emgcontact;
         var position,url;
+    
+        function getloc(){
+         navigator.geolocation.getCurrentPosition(function(pos){
+          position= pos;
+          url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
+          return url;
+        });  
+        }
         $(document).ready(function(){
           $("#forum-page").hide();
           $("#profile-page").hide();
@@ -206,7 +214,7 @@
             $.ajax({
               type: 'POST',
               url: '/send_sms',
-              data: {phone:emgcontact},
+              data: {phone:emgcontact,location:getloc()},
               success: function(data){
                 //do something with the data via front-end framework
                 console.log(data);
@@ -252,11 +260,11 @@
           });
           
             // $("#abc").click(function(){
-            //     navigator.geolocation.getCurrentPosition(function(pos){
-            //       position= pos;
-            //       url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
-            //       console.log(url);
-            //     });  
+                // navigator.geolocation.getCurrentPosition(function(pos){
+                //   position= pos;
+                //   url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
+                //   console.log(url);
+                // });  
             // });
         });
         

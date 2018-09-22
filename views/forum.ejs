@@ -12,9 +12,9 @@
     </h1>
     <form class="ui reply form">
       <div class="field">
-        <textarea id="comment-box" ></textarea>
+        <textarea id="post-box" ></textarea>
       </div>
-      <div class="ui blue labeled submit icon button right floated" id="submit-comment">
+      <div class="ui blue labeled submit icon button right floated" id="submit-post">
         <i class="icon edit"></i> Add Post
       </div>
     </form>
@@ -84,13 +84,17 @@
             username = data.username;
           }
         });
-       $('#submit-comment').click(function(){
+      
+      
+       $('#submit-post').click(function(){
         data = {
           username:username,
-          body:$('#comment-box').val(),
+          body:$('#post-box').val(),
         }
-        if(!data.body)
-          alert("
+        if(!data.body){
+          $('#post-box').focus();
+          return;
+        }
         $.ajax({
           type: 'POST',
           url: '/forum/submit_post',
@@ -99,6 +103,8 @@
             window.location.reload();
           }
         });
+         
+         
       });
     });
    
