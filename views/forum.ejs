@@ -81,36 +81,26 @@
           type: 'POST',
           url: '/profile/getdata',
           success: function(data){
-            //do something with the data via front-end framework
-            // console.log(data);
             username = data.username;
-            useremail = data.email;
-            emgcontact = data.emgphone;
-            $('#name').val(data.username);
-            $('#phone').val(data.phone);
-            $('#email').val(data.email);
-            $('#address').val(data.address);
-            $('#emg-name').val(data.emgname);
-            $('#emg-phone').val(data.emgphone);
-            $('#emg-email').val(data.emgemail);
-            $('#homeemgname').html(data.emgname);
-            $('#homeemgphone').html(data.emgphone);
-            $('#accname').html(data.username);
           }
         });
-      });
-    $('#submit-comment').click(function(){
+       $('#submit-comment').click(function(){
+        data = {
+          username:username,
+          body:$('#comment-box').val(),
+        }
+        if(!data.body)
+          alert("
         $.ajax({
           type: 'POST',
-          url: '/forum/submit_comment',
-          data: {
-            username:$('#username').val(),
-            body:$('#comment-box').val(),
-          },
+          url: '/forum/submit_post',
+          data,
           success: function(data){
-            console.log("successfully Commented");
+            window.location.reload();
           }
         });
       });
+    });
+   
   </script>
 </body>
