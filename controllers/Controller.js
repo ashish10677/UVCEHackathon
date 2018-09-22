@@ -73,24 +73,24 @@ module.exports=function(app){
 
     //post request to submit prfile
     app.post('/submit_profile',jsonParser,function(req,res){
-        // User.findOne({email:req.body.email}).then((currentUser) => {
-        //     if(currentUser){
-        //         User.updateOne({email:req.body.email},req.body,{upsert:true}, function(err, data){
-        //             if (err) return res.status(500).send({ error: err });
-        //             return res.send("succesfully updated profile");
-        //         });
-        //     }
-        //     else{
-        //         return res.send("user profile doesnt exists");
-        //         // var nlog={email:req.body.email,logs:[]};
-        //         // var newLogs=ChangesLog(nlog).save(function(err,data){
-        //         //     if (err) return res.status(500).send({ error: err });
-        //         //     prev_cv = req.body.cv;
-        //         //     return res.send("succesfully updated without change logs");
-        //         //     // res.json(data);
-        //         // });
-        //     }
-        // });
+        User.findOne({email:req.body.email}).then((currentUser) => {
+            if(currentUser){
+                User.updateOne({email:req.body.email},req.body,{upsert:true}, function(err, data){
+                    if (err) return res.status(500).send({ error: err });
+                    return res.send("succesfully updated profile");
+                });
+            }
+            else{
+                return res.send("user profile doesnt exists");
+                // var nlog={email:req.body.email,logs:[]};
+                // var newLogs=ChangesLog(nlog).save(function(err,data){
+                //     if (err) return res.status(500).send({ error: err });
+                //     prev_cv = req.body.cv;
+                //     return res.send("succesfully updated without change logs");
+                //     // res.json(data);
+                // });
+            }
+        });
         console.log(req.body);
     });
 

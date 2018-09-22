@@ -10,7 +10,6 @@
   <div class="ui container">
     <div class="ui items">
     <% for(let post of feed.posts){%>
-      <div class="item">
 <!--         <div class="label">
           <img src="/images/avatar/small/joe.jpg">
         </div> -->
@@ -19,19 +18,24 @@
         
         <div class="item">
           <a class="ui tiny image">
-            <img src="/images/avatar/large/stevie.jpg">
+            <img src="https://semantic-ui.com/images/avatar/large/stevie.jpg">
           </a>
           <div class="content">
-            <a class="header">Stevie Feliciano</a>
+            <a class="header"><%=post.username%></a>
             <div class="description">
-              <p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time reading, running, and writing.</p>
+              <p><%=post.body%></p>
+            </div>
+            <div class="extra">
+              <i class="green check icon"></i>
+              121 Votes
             </div>
           </div>
+         
         </div>
         
         
         
-        <div class="content">
+<!--         <div class="content">
           <div class="summary">
             <a><%=post.username%></a>
           <div class="date">
@@ -61,13 +65,8 @@
               </div>
             </a>
           </div>
-            
-         
-   
-          
-      </div>
+        </div> -->
         
-      </div>
     <% }%>
     </div>
   </div>

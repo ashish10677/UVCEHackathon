@@ -68,6 +68,9 @@
     <div class="content">
         <div class="container">
             <div id="profile-page">
+              <% for(let i of userdata){ %>
+                    <p><%=i%></p>
+                <% } %>
                <form id="registration-form" class="col-lg-12">
                  <div class="col-lg-6">
                    <h2>
@@ -185,54 +188,4 @@
 </body>
 
 </html>
-
-
-
-<!-- 
-
-<html>
-    <head>
-        <title>Women Safety</title>
-    </head>
-    <body>
-        <h1>My Todo List</h1>
-        <div id="todo-table">
-            <ul>
-                <% for(let todo of todos){ %>
-                    <li><%=todo%></li>
-                <% } %>
-            </ul>
-        </div>
-      <button type="button" id="abc">
-        get loc
-      </button>
-      <div id="output">
-        
-      </div>
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-      <script type="text/javascript">
-        var position,url;
-        $(document).ready(function(){
-            $("#abc").click(function(){
-                navigator.geolocation.getCurrentPosition(function(pos){
-                  position= pos;
-                  url=`http://www.google.com/maps/place/${pos.coords.latitude},${pos.coords.longitude}`
-                  console.log(url);
-                });  
-            });
-        });
-        
-        // if (navigator.geolocation) { //check if geolocation is available
-        //     navigator.geolocation.getCurrentPosition(function(position){
-        //       console.log(position);
-        //     });   
-        // }
-     
-      </script>
-    </body>
-</html> -->
-
-
-
-
 
