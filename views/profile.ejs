@@ -72,6 +72,7 @@
         <div class="container">
             <div id="home-page">
               <h2>Emergency Contact</h2>
+              <span class="glyphicon glyphicon-user"></>
               <p>Name: <span id="homeemgname"></span></p>
               <p>Phone: <span id="homeemgphone"></span></p>
               <button type="button" id="contact-button" class="btn btn-danger">NOTIFY</button>
@@ -137,6 +138,7 @@
   <script type="text/javascript">
         var useremail = '';
         var username = '';
+        var emgcontact;
         var position,url;
         $(document).ready(function(){
           $("#profile-page").hide();
@@ -149,6 +151,7 @@
                 // console.log(data);
                 username = data.username;
                 useremail = data.email;
+                emgcontact = data.emgphone;
                 $('#name').val(data.username);
                 $('#phone').val(data.phone);
                 $('#email').val(data.email);
@@ -173,7 +176,18 @@
           });
           
           //post request to send sms to emg contact
-          $('#contact-button')
+          $('#contact-button').click(function(){
+            $.ajax({
+              type: 'POST',
+              url: '/send_sms',
+              data: {phone:emgcontact},
+              success: function(data){
+                //do something with the data via front-end framework
+                console.log(data);
+                alert("Emergency person contacted!! Help is on the way!!");
+              }
+            });
+          });
           
           //post request to verify phone
           $('#verify-phone-button').click(function(){

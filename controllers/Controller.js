@@ -44,6 +44,7 @@ module.exports=function(app){
     //post request to send sms
     app.post('/send_sms',jsonParser,function(req,res){
         //get data from mongodb and pass it to view
+        console.log(req.body.phone);
         const client = require('twilio')(
           "AC061662d2d4a109724d16772ef79d3015","d784b07218dd2f02d0853dc40b9595d2"
         );
@@ -52,7 +53,7 @@ module.exports=function(app){
           from: "+13203144713",
           to: "+91"+req.body.phone,
           body: "http://www.google.com/maps/place/12.9748561,77.58618249999999"
-        }).then(message => console.log(message.sid));
+        }).then(message => res.json(message.sid));
     }); 
   
     //post request to retrieve profile

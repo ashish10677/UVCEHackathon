@@ -6,8 +6,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
 </head>
 <body>
-  
   <div class="ui container">
+    <h1>
+      Discussion Forum
+    </h1>
+    <form class="ui reply form">
+      <div class="field">
+        <textarea></textarea>
+      </div>
+      <div class="ui blue labeled submit icon button">
+        <i class="icon edit"></i> Add Post
+      </div>
+    </form>
+    
     <div class="ui items">
     <% for(let post of feed.posts){%>        
       <div class="item">
@@ -25,9 +36,12 @@
           <div class="extra">
             <i class="green like icon"></i>
             <%=post.likes%> Likes
-            
             <div class="ui tiny green right floated button">
               Comment
+            </div>
+            <div class="ui tiny right floated button">
+              <i class="green like icon"></i>
+              Like
             </div>
             <div style="display:block;margin-left:2em">
               <% for(let comment of post.comments){%>
@@ -48,23 +62,14 @@
                 </div>
               <% }%>
             </div>
-            
           </div>
         </div>
-
       </div>
-        
-        
-        
-
-               
-      
-        
     <% }%>
     </div>
+    
   </div>
 
-  
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
