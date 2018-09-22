@@ -54,7 +54,7 @@ module.exports=function(app){
           // from: "+13203144713",
           from: "+19122214215",
           to: "+91"+req.body.phone,
-          body: req.body.location
+          body: "Your friend is need of you:    "+req.body.location
         }).then(message => res.json(message.sid));
     }); 
   
