@@ -36,11 +36,11 @@ const authCheck = (req, res, next) => {
 
 //get request for rendering user profile page
 router.get('/',authCheck, (req, res) => {
-    res.render('profile',{userdata: [req.user.username,req.user.email]});
+    res.render('profile',{user_data});
 });
 
 //post request to get user data
-router.post('/',function(req,res){
+router.post('/getdata',function(req,res){
     //get data from mongodb and pass it to view
     res.json(user_data);
 

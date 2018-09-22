@@ -22,12 +22,15 @@
           </a>
           <div class="content">
             <a class="header"><%=post.username%></a>
+            <div class="date">
+              <small><%=post.timestamp%></small>
+            </div>
             <div class="description">
               <p><%=post.body%></p>
             </div>
             <div class="extra">
-              <i class="green check icon"></i>
-              121 Votes
+              <i class="green like icon"></i>
+              <%=post.likes%> Likes
             </div>
           </div>
          
