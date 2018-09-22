@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Cv = require('../models/user-model');
+const User = require('../models/user-model');
 
 var user_name;
 var user_data={
@@ -36,7 +36,7 @@ const authCheck = (req, res, next) => {
 
 //get request for rendering user profile page
 router.get('/',authCheck, (req, res) => {
-    res.render('profile',{todos: {name:"HELLO",usn:"fdfads"}});
+    res.render('profile',{todos: "ad"});
 });
 
 //post request to get user data

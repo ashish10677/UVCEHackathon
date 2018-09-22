@@ -4,11 +4,12 @@ var helmet = require('helmet')
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
+const forumRoutes = require('./routes/forum-routes');
 // const adminRoutes = require('./routes/admin-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
-var cvController = require("./controllers/Controller");
+var controller = require("./controllers/Controller");
 
 var bodyParser = require('body-parser');
 
@@ -55,9 +56,10 @@ mongoose.Promise = global.Promise;
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/forum', forumRoutes);
 // app.use('/admin', adminRoutes);
 
-cvController(app);
+controller(app);
 
 app.set('port', (process.env.PORT || 3000));
 
