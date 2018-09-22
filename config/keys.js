@@ -10,7 +10,7 @@ module.exports = {
              dbURI: 'mongodb://indigoorder:indigo01110011@ds111913.mlab.com:11913/women-safety-app'
          },
          session: {
-             cookieKey: 'womensafety'
+             cookieKey: 'womensafetyindigoorder'
          }
 };
 
