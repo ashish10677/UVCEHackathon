@@ -25,9 +25,22 @@
           <div class="extra">
             <i class="green like icon"></i>
             <%=post.likes%> Likes
-            <% for(let comments of feed.comments){%>
-              
-
+            <% for(let comments of post.comments){%>
+              <div class="ui small feed">
+                <div class="event">
+                  <div class="content">
+                    <div class="summary">
+                      <a><%=comment.username%></a>
+                    <div class="date">
+                      <%=comment.timestamp%>
+                    </div>
+                    </div>
+                    <div class="extra text">
+                      <%=comment.body%>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <% }%>
           </div>
         </div>
@@ -37,21 +50,7 @@
         
         
 
-               <div class="ui small feed">
-                <div class="event">
-                  <div class="content">
-                    <div class="summary">
-                      <a><%=post.username%></a>
-                    <div class="date">
-                      <%=post.timestamp%>
-                    </div>
-                    </div>
-                    <div class="extra text">
-                      <%=post.body%>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               
       
         
     <% }%>

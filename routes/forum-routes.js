@@ -9,7 +9,18 @@ var Samplefeed={
       title:"title",
       body:"testbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adslj testbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adsljtestbody adkfjhasdk sdlkfjh asdlksdhfksdj kldsjfh ksdjfh kdsjfhasldkf hsdkjf hlaksdjfh dsfdslj;af alkhfds a lsdkjldskj adslj",
       likes:2,
-      comments:[]
+      comments:[
+        {
+          timestamp:"2 days ago",
+          username:"testcomuser2",
+          body:"test commetn body2"
+        },
+        {
+          timestamp:"2 days ago",
+          username:"testcomuser1",
+          body:"test jksdgsdklgf body2"
+        }
+      ]
     },
     {
       timestamp:"2 days ago",
@@ -17,7 +28,18 @@ var Samplefeed={
       title:"title2",
       body:"testbody2",
       likes:3,
-      comments:[]
+      comments:[
+        {
+          timestamp:"2 days ago",
+          username:"testcomuser2",
+          body:"test commetn body2"
+        },
+        {
+          timestamp:"2 days ago",
+          username:"testcomuser1",
+          body:"test jksdgsdklgf body2"
+        }
+      ]
     },
     {
       timestamp:"1 day ago",

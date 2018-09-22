@@ -55,8 +55,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Forum</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a id='home-link'>Home</a></li>
+                    <li><a id='forum-link'>Forum</a></li>
+                    <li><a id='profile-link'>Profile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Help</a></li>
@@ -67,6 +68,11 @@
     </nav>
     <div class="content">
         <div class="container">
+            <div id="home-page">
+              <h2>Emergency Contact</h2>
+              <p>Name: <span id="homeemgname"></span></p>
+              <p>Name: <span id="homeemgphone"></span></p>
+            </div>
             <div id="profile-page">
                <form id="registration-form" class="col-lg-12">
                  <div class="col-lg-6">
@@ -128,7 +134,7 @@
   <script type="text/javascript">
         var position,url;
         $(document).ready(function(){
-          
+          $("#profile-page").hide();
           $("#verification-alert").hide();
           $.ajax({
               type: 'POST',
@@ -145,6 +151,14 @@
                 $('#emg-email').val(data.emgemail);
               }
             });
+          
+          $("#home-link").click(function(){
+            $("#home-page").show();
+          });
+          
+          $("#profile-link").click(function(){
+            $("#profile-page").show();
+          });
           
           //post request to verify phone
           $('#verify-phone-button').click(function(){
