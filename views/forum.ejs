@@ -21,54 +21,9 @@
     <h2>
       Posts
     </h2>
-    <div class="ui items">
-    <% for(let post of feed.posts){%>        
-      <div class="item">
-        <a class="ui tiny image">
-          <img src="https://semantic-ui.com/images/avatar/large/stevie.jpg">
-        </a>
-        <div class="content">
-          <a class="header"><%=post.username%></a>
-          <div class="date">
-            <small><%=post.timestamp%></small>
-          </div>
-          <div class="description">
-            <p><%=post.body%></p>
-          </div>
-          <div class="extra">
-            <i class="green like icon"></i>
-            <%=post.likes%> Likes
-            <div class="ui tiny green right floated button">
-              Comment
-            </div>
-            <div class="ui tiny right floated button">
-              <i class="green like icon"></i>
-              Like
-            </div>
-            <div style="display:block;margin-left:2em">
-              <% for(let comment of post.comments){%>
-                <div class="ui small feed">
-                  <div class="event">
-                    <div class="content">
-                      <div class="summary">
-                        <a><%=comment.username%></a>
-                      <div class="date">
-                        <%=comment.timestamp%>
-                      </div>
-                      </div>
-                      <div class="extra text">
-                        <%=comment.body%>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <% }%>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% }%>
-    </div>
+    <p class="ui items" id="posts">
+      
+    </p>
     
   </div>
 
@@ -76,6 +31,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
   <script>
+    var username,feed;
     $(document).ready(function(){
       $.ajax({
           type: 'POST',
@@ -84,7 +40,15 @@
             username = data.username;
           }
         });
-      
+      $.ajax({
+          type: 'GET',
+          url: '/retrieve_feed',
+          success: function(data){
+            console.log(data);
+            feed = data.username;
+            $(data).append("#posts");
+          }
+        });
       
        $('#submit-post').click(function(){
         data = {

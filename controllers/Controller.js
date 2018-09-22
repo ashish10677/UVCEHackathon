@@ -106,12 +106,13 @@ module.exports=function(app){
     });
 
     //post request to retrieve feed
-    app.post('/retrieve_feed',jsonParser,function(req,res){
+    app.get('/retrieve_feed',function(req,res){
         //get data from mongodb and pass it to view
         Feed.find({},{'_id':0,'__v':0}, function (err, feed) {
             if (err) return res.status(500).send({ error: err });
             var feeds=JSON.stringify(feed);
             feeds=JSON.parse(feeds);
+          console.log(feeds);
 			      res.json(feeds);
 		    });
     });
