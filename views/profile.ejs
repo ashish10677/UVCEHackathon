@@ -12,8 +12,8 @@
         <h1>My Todo List</h1>
         <div id="todo-table">
             <ul>
-                <% for(var i=0; i < todos.length; i++){ %>
-                    <li><%= todos[i].item %></li>
+                <% for(let todo of todos){ %>
+                    <li><%=todo%></li>
                 <% } %>
             </ul>
         </div>
